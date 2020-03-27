@@ -66,6 +66,7 @@
     <Compile Include="Assets\ballscript.cs" />
     <Compile Include="Assets\moveL.cs" />
     <Compile Include="Assets\moveR.cs" />
+    <Compile Include="Assets\timerscript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Github/g/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -22,7 +22,15 @@ public class ballscript : MonoBehaviour
     {
         if(other.collider.name=="tembokR" || other.collider.name=="tembokL")
         {
-            GetComponent<Transform>().position = new Vector2(0, 0);
+            StartCoroutine(jeda());
+        }
+
+        IEnumerator jeda()
+        {
+            ball.velocity = new Vector2(0, 0);
+            ball.GetComponent<Transform>().position = new Vector2(0, 0);
+            yield return new WaitForSeconds(1);
+            ball.velocity = new Vector2(1, 1) * speed;
         }
     }
 }

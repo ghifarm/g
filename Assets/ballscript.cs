@@ -10,7 +10,11 @@ public class ballscript : MonoBehaviour
     public Animator animatr;
     void Start()
     {
-        ball.velocity = new Vector2(1, 1) * speed;
+        int x = Random.Range(0,2)*2-1; //nilai x bisa bernilai 0/1
+        int y = Random.Range(0,2)*2-1; //nilai x bisa bernilai 0/1
+        int speed = Random.Range(20, 26);//nilai speed antara 20 - 25
+        ball.velocity = new Vector2(-1, -1) * speed;
+        ball.GetComponent<Transform>().position = Vector2.zero;
         animatr.SetBool("IsMove", true);
     }
 
@@ -31,17 +35,22 @@ public class ballscript : MonoBehaviour
     {
         if(other.collider.name=="tembokR" || other.collider.name=="tembokL")
         {
-            StartCoroutine(jeda());
+            StartCoroutine(jeda()); //untuk pindah ke tengah
         }
 
         IEnumerator jeda()
         {
-            ball.velocity = new Vector2(0, 0);
-            animatr.SetBool("IsMove", false);
-            ball.GetComponent<Transform>().position = new Vector2(0, 0);
+            ball.velocity = new Vector2(0, 0);//menghentikan bola
+            animatr.SetBool("IsMove", false);//mengubah animasi ke api berhenti
+            ball.GetComponent<Transform>().position = new Vector2(0, 0);//mengubah posisi bola
+
             yield return new WaitForSeconds(1);
-            ball.velocity = new Vector2(1, 1) * speed;
-            animatr.SetBool("IsMove", true);
+
+            int x = Random.Range(0,2)*2-1; //nilai x bisa bernilai 0/1
+            int y = Random.Range(0,2)*2-1; //nilai x bisa bernilai 0/1 
+
+            ball.velocity = new Vector2(x, y) * speed;//mengatur kecepatan
+            animatr.SetBool("IsMove", true);//mengubah animasi ke api bergerak
         }
     }
 }

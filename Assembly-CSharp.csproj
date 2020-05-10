@@ -45,10 +45,12 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\BGMusicScript.cs" />
      <Compile Include="Assets\PlayScript.cs" />
      <Compile Include="Assets\ballscript.cs" />
      <Compile Include="Assets\moveL.cs" />
      <Compile Include="Assets\moveR.cs" />
+     <Compile Include="Assets\scoringScript.cs" />
      <Compile Include="Assets\timerscript.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

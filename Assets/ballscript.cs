@@ -7,7 +7,9 @@ public class ballscript : MonoBehaviour
     public int speed = 10;
     // Start is called before the first frame update
     public Rigidbody2D ball;
+    public GameObject masterScript;
     public Animator animatr;
+    public AudioSource hitEffect;
     void Start()
     {
         int x = Random.Range(0,2)*2-1; //nilai x bisa bernilai 0/1
@@ -35,7 +37,12 @@ public class ballscript : MonoBehaviour
     {
         if(other.collider.name=="tembokR" || other.collider.name=="tembokL")
         {
+            masterScript.GetComponent<scoringScript>().UpdateScore(other.collider.name);
             StartCoroutine(jeda()); //untuk pindah ke tengah
+        }
+
+        if(other.collider.tag=="Player"){
+            hitEffect.Play();
         }
 
         IEnumerator jeda()
